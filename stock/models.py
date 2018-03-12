@@ -7,7 +7,7 @@ class Stock(models.Model):
     active = models.BooleanField('Active', default=True)
 
     def __str__(self):
-        return self.name
+        return self.offer + ": " + str(self.quantity)
 
     class Meta:
         db_table = 'stock'
@@ -39,7 +39,7 @@ class OfferSale(models.Model):
     quantity = models.PositiveIntegerField('Quantity', default=0)
 
     def __str__(self):
-        return self.offer + ": " + self.quantity
+        return self.offer + ": " + str(self.quantity)
 
     class Meta:
         db_table = 'offer_sale'

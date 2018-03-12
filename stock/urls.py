@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
 
 from .views import (schema_view, StockViewSet, TransactionViewSet,
-                    OfferSaleViewSet)
+                    OfferSaleViewSet, CleanView)
 
 api_url_patterns = [
     url(r'^stocks/$', StockViewSet.as_view({
@@ -38,5 +38,6 @@ api_url_patterns = [
 
 urlpatterns = [
     url(r'^api/v1/', include(api_url_patterns)),
-    url(r'^', schema_view),
+    url(r'^cleaner/$', CleanView.as_view(), name='cleaner'),
+    url(r'^', schema_view),    
 ]
